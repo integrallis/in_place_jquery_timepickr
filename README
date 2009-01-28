@@ -14,6 +14,11 @@ Example:
   # View
   <%= in_place_timepickr :event, :start_time %>
 
+  # Layout
+  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag :in_place_jquery_timepickr %>
+  <%= stylesheet_link_tag :in_place_jquery_timepickr %>
+
 Noted: The generated setters only modify time portion of a value. If using with
 other editing (or in place editing) care must taken not to override time when
 attempting to only set the date
