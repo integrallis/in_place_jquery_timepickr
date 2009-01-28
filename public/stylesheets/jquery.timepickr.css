@@ -1,0 +1,71 @@
+/* @override http://localhost:3002/stylesheets/jquery.timepickr.css?1232088173 */
+
+/* reset */
+/* v1.0 | 20080212 */
+
+ol, ul {
+	list-style: none;
+}
+
+/* dropslide */
+
+.ui-dropslide {
+    position:absolute;
+}
+.ui-dropslide ol {
+    width:500px;
+    margin-top:4px;
+    height:24px;
+}
+.ui-dropslide ol ol {
+    margin-top:0;
+}
+.ui-dropslide ol ol li {
+    margin-top:7px;
+}
+.ui-dropslide li {
+    float:left;
+}
+.ui-dropslide li.hour   { width:30px; }
+.ui-dropslide li.minute { width:30px; }
+.ui-dropslide li.second { width:30px; }
+.ui-dropslide span {
+    font-size:.7em;
+    padding:4px 6px 4px 6px;
+    margin-left:2px;
+    text-align:center;
+    cursor:pointer;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    display:block;
+}
+/* dark theme */
+
+ui-dropslide li {
+    list-style: none;
+}
+ui-dropslide span {
+    border:0;
+    color:#ccc;
+    background:#333;
+    font-weight:bold;
+    border:1px solid #555;
+}
+ui-dropslide span:hover {
+    color:#eee;
+    background:#333;
+    border:1px solid #777;
+}
+
+li.ui-timepickr span {
+    background:#333 url(../images/btn.png) repeat-x!important;
+    font-family:monospace;
+    font-size:100%;
+    font-weight:bold;
+    color:#ccc!important;
+}
+
+li.ui-timepickr.hover span {
+    background:#3679AE url(../images/btn-hover.png) repeat-x!important;
+    color:#fff!important;
+}

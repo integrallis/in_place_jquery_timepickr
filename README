@@ -1,0 +1,24 @@
+InPlaceJQueryTimepickr
+======================
+Simple 2-click in place editing time picker using jquery.timepickr
+See http://haineault.com/media/jquery/ui-timepickr/page/ and
+    http://code.google.com/p/jquery-utils/
+
+Example:
+
+  # Controller
+  class EventController < ApplicationController
+    in_place_edit_for :event, :start_time
+  end
+
+  # View
+  <%= in_place_timepickr :event, :start_time %>
+
+Noted: The generated setters only modify time portion of a value. If using with
+other editing (or in place editing) care must taken not to override time when
+attempting to only set the date
+
+Copyright (c) 2009 Brian Sam-Bodden <bsbodden@integrallis.com> (Rails Integration)
+Copyright (c) 2009 Maxime Haineault <haineault@gmail.com> (JavaScript JQuery Widget)
+
+Released under the MIT license, MIT License (http://www.opensource.org/licenses/mit-license.php
