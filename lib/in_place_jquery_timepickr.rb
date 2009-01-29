@@ -31,14 +31,16 @@ module InPlaceJQueryTimepickr
 
       # result consists of the html to display value and hidden form containing
       # input field, ok, cancel and spinner animation
-      ret = html_for_inplace_display(id_string, display_text)
-      ret << form_for_inplace_display(id_string, object_name, method_name, field, @object, options)
+      ret = generate_html(id_string, display_text)
+      ret << generate_form(id_string, object_name, method_name, field, @object, options)
     end
+
+    protected
 
     # generates the html to display the value of the field formatted accordingly
     # it responds to the onclick event by hiding itself and showing the inplace edit
     # form
-    def html_for_inplace_display(id_string, display_text)
+    def generate_html(id_string, display_text)
       content_tag(:span,
                   display_text,
                   :onclick => update_page do |page|
@@ -53,7 +55,7 @@ module InPlaceJQueryTimepickr
     end
 
     # generate an ajax form to post updates to the time portion of a model's property
-    def form_for_inplace_display(id_string, object_name, method_name, field, object, opts)
+    def generate_form(id_string, object_name, method_name, field, object, opts)
       retval = ""
 
       # the setter to be invoked on the controller
@@ -78,7 +80,7 @@ module InPlaceJQueryTimepickr
           :style => "display:none"
         }
       )
-      
+
       retval << field
       # add a hidden field with the format being used in the view
       retval << hidden_field_tag('convention', opts[:convention]) if opts[:convention]
@@ -116,7 +118,7 @@ module InPlaceJQueryTimepickr
       :seconds => 'seconds',
       :prefix => 'prefix',
       :sufix => 'suffix',
-      :range_min => 'rangeMin', 
+      :range_min => 'rangeMin',
       :range_sec => 'rangeSec',
       :update_live => 'updateLive',
       :reset_on_blur => 'resetOnBlur'
@@ -128,7 +130,7 @@ module InPlaceJQueryTimepickr
       options.each_pair do |key, value|
         js_options[RB_TO_JS_OPTIONS[key]] = %('#{value}') if RB_TO_JS_OPTIONS.has_key? key
       end
- 
+
       javascript_tag(%[
         jQuery(function() {
           jQuery('##{id}').timepickr(#{options_for_javascript(js_options)});
