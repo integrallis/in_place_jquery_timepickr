@@ -8,7 +8,7 @@ Example:
 
   # Controller
   class EventController < ApplicationController
-    in_place_edit_for :event, :start_time
+    in_place_timepickr_for :event, :start_time
   end
 
   # View
