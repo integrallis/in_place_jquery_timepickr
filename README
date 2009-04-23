@@ -1,6 +1,8 @@
 InPlaceJQueryTimepickr
 ======================
-Simple 2-click in place editing time picker using jquery.timepickr
+Simple JQuery (v1.3.1) 2-click in place editing time picker and regular time
+picker using jquery.timepickr (v0.6.3)
+
 See http://haineault.com/media/jquery/ui-timepickr/page/ and
     http://code.google.com/p/jquery-utils/
 
@@ -13,6 +15,9 @@ Example:
 
   # View
   <%= in_place_timepickr :event, :start_time %>
+
+  # In a form in a View
+  <%= f.timepickr :start_time %>
 
   # Layout
   <%= javascript_include_tag :defaults %>
