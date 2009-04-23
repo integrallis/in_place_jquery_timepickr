@@ -54,7 +54,7 @@ module InPlaceJQueryTimepickr
         display_text = h(options[:display_text] || current_val.strftime(format))
 
         # build the ui id to be updated
-        id_string = "#{object_name}_#{method_name}_#{@object.id}_in_place_timepickr"
+        id_string = "#{object_name}_#{method_name}_#{@object.id}_timepickr"
         # build the id for the input field
         input_field_id = "#{id_string}_field"
         # build the input field and the jquery timepickr javascript
