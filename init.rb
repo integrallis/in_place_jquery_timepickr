@@ -2,6 +2,7 @@ require "in_place_jquery_timepickr"
 
 ActionController::Base.send :include, InPlaceJQueryTimepickr::ControllerHelper
 ActionController::Base.helper InPlaceJQueryTimepickr::ViewHelper
+
 ActionView::Helpers::FormHelper.send(:include, InPlaceJQueryTimepickr::ViewHelper::FormHelper)
 ActionView::Base.send(:include, InPlaceJQueryTimepickr::ViewHelper::FormHelper)
 

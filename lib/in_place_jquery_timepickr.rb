@@ -1,5 +1,5 @@
 module InPlaceJQueryTimepickr
-  module ViewHelper
+  module ViewHelper 
     # Example:
     #
     #   # View
@@ -37,7 +37,7 @@ module InPlaceJQueryTimepickr
 
     # Example:
     #
-    #   # View in a form
+    #   # View in a form f
     #   <%= f.timepickr :start_time %>
     module FormHelper
       def timepickr(object, method, tag_options = {}, options = {})

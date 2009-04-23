@@ -1,7 +1,7 @@
 InPlaceJQueryTimepickr
 ======================
-Simple JQuery (v1.3.1) 2-click in place editing time picker and regular time
-picker using jquery.timepickr (v0.6.3)
+Simple 2-click in place editing time picker and regular time
+picker using jquery.timepickr (v0.6.3) and JQuery (v1.3.1)
 
 See http://haineault.com/media/jquery/ui-timepickr/page/ and
     http://code.google.com/p/jquery-utils/
