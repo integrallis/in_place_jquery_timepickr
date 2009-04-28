@@ -1,5 +1,5 @@
 module InPlaceJQueryTimepickr
-  module ViewHelper 
+  module ViewHelper
     # Example:
     #
     #   # View
@@ -35,11 +35,35 @@ module InPlaceJQueryTimepickr
       ret << generate_form(id_string, object_name, method_name, field, @object, options)
     end
 
-    # Example:
-    #
-    #   # View in a form f
-    #   <%= f.timepickr :start_time %>
+
     module FormHelper
+
+      # Example:
+      #
+      #   # In a View as a tag
+      #   <%= timepickr_tag :start_time, Time.now %>
+      def timepickr_tag(name, value = nil, tag_options = {}, options = {})
+        # resolve target format or use 24 hour format as default
+        format = JS_TO_RUBY_FORMATS[options[:convention] || '24']
+        # grab the display text
+        current_val = value || Time.now
+        display_text = h(options[:display_text] || current_val.strftime(format))
+
+        # build the ui id to be updated
+        id_string = "#{options[:id] || name.to_s}_timepickr"
+        # build the id for the input field
+        input_field_id = "#{id_string}_field"
+        # build the input field and the jquery timepickr javascript
+        tag_options = { :id => input_field_id,
+                        :value => display_text,
+                        :class => "in_place_timepickr" }.merge!(tag_options)
+        text_field_tag(name, display_text, tag_options) + create_javascript_function(input_field_id, options)
+      end
+
+      # Example:
+      #
+      #   # Inside a form f in a view
+      #   <%= f.timepickr :start_time %>
       def timepickr(object, method, tag_options = {}, options = {})
         # object and method name as strings, since we allow symbols to be passed
         object_name = object.to_s
